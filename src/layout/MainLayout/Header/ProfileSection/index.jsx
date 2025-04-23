@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -36,6 +37,7 @@ import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons-re
 
 export default function ProfileSection() {
   const theme = useTheme();
+  const navigate = useNavigate(); // Initialize useNavigate
   const { borderRadius } = useConfig();
   const [sdm, setSdm] = useState(true);
   const [value, setValue] = useState('');
@@ -43,9 +45,6 @@ export default function ProfileSection() {
   const [selectedIndex] = useState(-1);
   const [open, setOpen] = useState(false);
 
-  /**
-   * anchorRef is used on different components and specifying one type leads to other components throwing an error
-   * */
   const anchorRef = useRef(null);
 
   const handleToggle = () => {
@@ -68,6 +67,17 @@ export default function ProfileSection() {
 
     prevOpen.current = open;
   }, [open]);
+
+  // Handle Logout
+  const handleLogout = () => {
+    // Clear authentication token from localStorage
+    localStorage.removeItem('token');
+    
+    // Optionally clear any other session data
+
+    // Redirect to login page
+    navigate('/pages/login');
+  };
 
   return (
     <>
@@ -243,7 +253,7 @@ export default function ProfileSection() {
                             }
                           />
                         </ListItemButton>
-                        <ListItemButton sx={{ borderRadius: `${borderRadius}px` }} selected={selectedIndex === 4}>
+                        <ListItemButton sx={{ borderRadius: `${borderRadius}px` }} selected={selectedIndex === 4} onClick={handleLogout}>
                           <ListItemIcon>
                             <IconLogout stroke={1.5} size="20px" />
                           </ListItemIcon>

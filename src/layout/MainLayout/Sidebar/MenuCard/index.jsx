@@ -25,7 +25,7 @@ function LinearProgressWithLabel({ value, ...others }) {
   return (
     <Grid container direction="column" spacing={1} sx={{ mt: 1.5 }}>
       <Grid>
-        <Grid container sx={{ justifyContent: 'space-between' }}>
+        {/* <Grid container sx={{ justifyContent: 'space-between' }}>
           <Grid>
             <Typography variant="h6" sx={{ color: 'primary.800' }}>
               Progress
@@ -34,9 +34,9 @@ function LinearProgressWithLabel({ value, ...others }) {
           <Grid>
             <Typography variant="h6" color="inherit">{`${Math.round(value)}%`}</Typography>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
-      <Grid>
+      {/* <Grid>
         <LinearProgress
           aria-label="progress of theme"
           variant="determinate"
@@ -54,7 +54,7 @@ function LinearProgressWithLabel({ value, ...others }) {
             }
           }}
         />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }
@@ -83,7 +83,7 @@ function MenuCard() {
         }
       }}
     >
-      <Box sx={{ p: 2 }}>
+      {/* <Box sx={{ p: 2 }}>
         <List disablePadding sx={{ pb: 1 }}>
           <ListItem alignItems="flex-start" disableGutters disablePadding>
             <ListItemAvatar sx={{ mt: 0 }}>
@@ -113,7 +113,7 @@ function MenuCard() {
           </ListItem>
         </List>
         <LinearProgressWithLabel value={80} />
-      </Box>
+      </Box> */}
     </Card>
   );
 }

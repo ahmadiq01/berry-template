@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
+import CardsPage from '../cards/CardsPage';  // Correct relative path
 
 // Dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
@@ -22,6 +23,10 @@ const MainRoutes = {
     {
       path: '/',
       element: <Navigate to="/pages/login" /> // Default route to login
+    },
+    {
+      path: '/pages/cards',  // New route for CardsPage
+      element: <CardsPage />  // Renders CardsPage when navigating to /pages/cards
     },
     {
       path: 'dashboard',
